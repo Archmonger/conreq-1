@@ -7,4 +7,4 @@ DEBUG="False" && export DEBUG
 
 cd "${APP_DIR}" || exit 1
 
-python3 ./manage.py preconfig_conreq $(id -u hotio) $(id -g hotio)
+python3 manage.py preconfig_conreq $(id -u hotio) $(id -g hotio)
