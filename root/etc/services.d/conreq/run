@@ -8,4 +8,6 @@ DATA_DIR="${CONFIG_DIR}" && export DATA_DIR
 cd "${APP_DIR}" || exit 1
 
 # shellcheck disable=SC2086
-exec s6-setuidgid hotio hypercorn --bind 0.0.0.0:8000 --access-logfile "${CONFIG_DIR}/logs/access.log" --websocket-ping-interval 20 --workers "$(nproc)" ${ARGS} conreq.asgi:application
+exec s6-setuidgid hotio python3 \
+     manage.py run_conreq \
+     --disable-preconfig
